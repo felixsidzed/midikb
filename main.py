@@ -23,7 +23,7 @@ def main():
 		seq = construct(args.file, args.table, args.mode)
 
 	if not args.silent:
-		print(f"generated sequence: {seq}")
+		print(f"generated sequence: {seq}", flush=True)
 
 	if args.seqfile:
 		with open(args.seqfile, "w") as f:

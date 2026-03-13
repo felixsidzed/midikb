@@ -15,6 +15,7 @@ def construct(midiFile, tableFile, mode):
 
 	pitch2note = {note_name_to_number(k): v for k, v in table.items()}
 
+	nota = []
 	i = 0
 	while i < len(allNotes):
 		curTime = allNotes[i].start
@@ -43,4 +44,5 @@ def construct(midiFile, tableFile, mode):
 			if waitTIme > 0:
 				seq.append(f"({waitTIme:.4f})")
 
+	print(" ".join(nota))
 	return " ".join(seq)
