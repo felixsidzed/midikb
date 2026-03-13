@@ -32,10 +32,11 @@ def construct(midiFile, tableFile, mode):
 
 			i += 1
 			
-		if len(simulNotes) > 1:
-			seq.append(f"[{''.join(list(set(simulNotes)))}]")
-		elif len(simulNotes) == 1:
-			seq.append(simulNotes[0])
+		dedup = list(set(simulNotes))
+		if len(dedup) > 1:
+			seq.append(f"[{''.join(dedup)}]")
+		elif len(dedup) == 1:
+			seq.append(dedup[0])
 
 		if i < len(allNotes):
 			waitTIme = allNotes[i].start - curTime
